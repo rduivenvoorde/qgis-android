@@ -28,8 +28,9 @@ if [ "$1" = "--clear" ]; then
     $ADB clear org.qgis.qgis
 fi
 
+$ADB logcat -c
 gnome-system-log /tmp/logcat.log &
-$ADB shell am start -n org.qgis.qgis/eu.licentia.necessitas.industrius.QtActivity
+$ADB shell am start -n org.qgis.qgis/eu.licentia.necessitas.industrius.PreStartActivity
 
 $ADB logcat | tee /tmp/logcat.log
 
